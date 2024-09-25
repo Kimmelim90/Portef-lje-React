@@ -1,0 +1,68 @@
+{
+  "Awesome Game": {
+    "id": 1,
+    "short description": "A simple 2d platformer",
+    "date": {
+      "day": 20,
+      "month": 4,
+      "year": 2023
+    },
+    "description": "This is a game inspired by Mario, intended for me to learn how to program a game.",
+    "favourited": true
+  },
+  "Useful Budget Program": {
+    "id": 2,
+    "short description": "A budgetting app made with React",
+    "date": {
+      "day": 26,
+      "month": 6,
+      "year": 2024
+    },
+    "description": "This app was intended for me to learn React, and the languages it uses, and to have some value, so that it feels rewarding to work towards it.",
+    "favourited": true
+  },
+  "Cool App": {
+    "id": 3,
+    "short description": "A boardgame app, made with Next",
+    "date": {
+      "day": 10,
+      "month": 7,
+      "year": 2024
+    },
+    "description": "This app was intended for me to learn Next, and more about the languages it entails. The boardgame app is to help the boardgame club maintain a list of its boardgames.",
+    "favourited": true
+  },
+  "Test": {
+    "id": 1726586910941,
+    "short description": "Test",
+    "date": {
+      "day": "17",
+      "month": "09",
+      "year": "2024"
+    },
+    "description": "Test",
+    "favourited": false
+  },
+  "Charis Prosjekt": {
+    "id": 1726654906899,
+    "short description": "Test",
+    "date": {
+      "day": "18",
+      "month": "09",
+      "year": "2024"
+    },
+    "description": "Charis project",
+    "favourited": true
+  },
+  "Shvans Prosjekt": {
+    "id": 1726825607355,
+    "short description": "Test",
+    "date": {
+      "day": "05",
+      "month": "09",
+      "year": "2024"
+    },
+    "description": "Bkæ",
+    "favourited": false
+  }
+}
