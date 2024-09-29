@@ -3,43 +3,45 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import {readFile, writeFile} from 'node:fs/promises'
 
+const filePath = "src/backend/src/assets/projects.json";
+
 const app = new Hono()
 
 app.use("/*", cors());
 
 app.get("/projects", async (c) => {
-  const fileName = "projects.json";
+  
   try {    
-    const data = await readFile(`src/assets/${fileName}`, "utf-8");
+    const data = await readFile(`${filePath}`, "utf-8");
     return c.json(JSON.parse(data));
   } catch (err) {
-    console.error(`Error reading: ${fileName}`, err);
-    return c.text(`Failed to read: ${fileName}`, 500);
+    console.error(`Error reading: ${filePath}`, err);
+    return c.text(`Failed to read: ${filePath}`, 500);
   }
 });
 
 app.get("/getfavourites", async (c) => {
-  const fileName = "projects.json";
   try {    
-    const data = await readFile(`src/assets/${fileName}`, "utf-8");
+    const data = await readFile(`${filePath}`, "utf-8");
     let tempjson = JSON.parse(data)
     return c.json(JSON.parse(data));
   } catch (err) {
-    console.error(`Error reading: ${fileName}`, err);
-    return c.text(`Failed to read: ${fileName}`, 500);
+    console.error(`Error reading: ${filePath}`, err);
+    return c.text(`Failed to read: ${filePath}`, 500);
   }
 });
 
 app.get("/deleteproject", async (c) => {
   let tempjson;
-  const fileName = "projects.json";
+  
+  
   const id = c.req.query('id');
   try {    
-    const data = await readFile(`src/assets/${fileName}`, "utf-8");
+    const data = await readFile(`${filePath}`, "utf-8");
     tempjson = JSON.parse(data);
   } catch (err) {
-    console.error(`Error reading: ${fileName}`, err);
-    return c.text(`Failed to read: ${fileName}`, 500);
+    console.error(`Error reading: ${filePath}`, err);
+    return c.text(`Failed to read: ${filePath}`, 500);
   }
   const keys = Object.keys(tempjson);
   for (let i = 0; i < keys.length; i++) {
@@ -54,26 +56,25 @@ app.get("/deleteproject", async (c) => {
 
   const newData = JSON.stringify(tempjson, null, 2);
   try {
-    await writeFile("src/assets/projects.json", newData, "utf-8");
+    await writeFile(`${filePath}`, newData, "utf-8");
     console.log(`Deletion of ${id} Successful`);
   } catch (err) {
-    console.error(`Error readiting to: ${fileName}:`, err);
-    return c.text(`Failed to write to: ${fileName}`, 500);
+    console.error(`Error readiting to: ${filePath}:`, err);
+    return c.text(`Failed to write to: ${filePath}`, 500);
   }
   return c.text('Deleted!', 201);
 })
 
 app.post("/newproject", async (c) => {
-  const fileName = "projects.json";
   let tempdata;
   try {
     
-    const data = await readFile(`src/assets/${fileName}`, "utf-8");
+    const data = await readFile(`${filePath}`, "utf-8");
     tempdata = JSON.parse(data);
     
   } catch (err) {
-    console.error(`Error reading: ${fileName}`, err);
-    return c.text(`Failed to read: ${fileName}`, 500);
+    console.error(`Error reading: ${filePath}`, err);
+    return c.text(`Failed to read: ${filePath}`, 500);
   }
 
   // Setting body to be the JSON Data from the request
@@ -91,11 +92,11 @@ app.post("/newproject", async (c) => {
   const newData = JSON.stringify(tempdata, null, 2);
   // Writing the New Data to the JSON File
   try {
-    await writeFile("src/assets/projects.json", newData, "utf-8");
+    await writeFile(`${filePath}`, newData, "utf-8");
     console.log('Insert Successful');
   } catch (err) {
-    console.error(`Error readiting to: ${fileName}:`, err);
-    return c.text(`Failed to write to: ${fileName}`, 500);
+    console.error(`Error readiting to: ${filePath}:`, err);
+    return c.text(`Failed to write to: ${filePath}`, 500);
   }
 
   return c.text('Created!', 201);
