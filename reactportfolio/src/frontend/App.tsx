@@ -6,18 +6,7 @@ import Navbar from './components/Navbar';
 
 
 function App() {
-  const student {
-    name: "Kim Andre Thomasrud",
-    degree: "Computer Engineering",
-    points: 180,
-    email: "kimat@hiof.no",
-    experiences: [
-      { name: "Tech Support at Xerox",
-        name: "Tech Support at IBM"
-      }
-
-    ]
-  }
+  
   
 
   return (
