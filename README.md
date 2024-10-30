@@ -13,3 +13,7 @@ Currently there are no support to store the image, but I know the image is being
 -I've realized at the last second that its possible I might not have done everything that is required in this oblig, due to the structure of the tasks being weird.
 -Mapping, I've been used to create html elements and adding them to divs as they happen, but can do a retry with mapping, and might do it in a future polish.
 -Props and children/subcomponents, I would've loved to explore and do this further, but will have to be retried in a future polish.
+
+-Final Publish 30.10 - Notes
+The admin page, is now inteded to be the page where stuff is to be edited and added. The X Button, satisfies a part of CRUD, where it deletes a project. And will update without refresh.
+When you make a new project, or you press the eye or Y/N buttons, a request is sent to the server, but the page will not refresh this currently, because of time constraints, so refresh the changes to see the changes.
