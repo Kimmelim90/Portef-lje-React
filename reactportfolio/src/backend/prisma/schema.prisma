@@ -10,16 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Project {
-  id Int
-  name String
-  shortDescription? String
-  description?
-  dateDay Int
-  dateMonth Int
-  dateYear Int
-  favourited Boolean
-  publishedAt DateTime
-  public Boolean
-  status String
+model Projects {
+  id               Int      @id @default(autoincrement())
+  name             String
+  shortDescription String?
+  description      String
+  createdAt        String
+  favourited       Boolean
+  publishedAt      String?
+  public           Boolean @default(false)
+  status           String @default("draft")
+
+  tags             Tags[]   @relation("ProjectTags")  // Defines the one-to-many relation with Tags
+}
+
+model Tags {
+  projectId Int
+  tag       String
+
+  project   Projects @relation(fields: [projectId], references: [id], name: "ProjectTags", onDelete: Cascade) // Relation back to Project
+
+  @@id([projectId, tag])  // Composite primary key to ensure uniqueness
 }

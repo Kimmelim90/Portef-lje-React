@@ -29,3 +29,19 @@ button.deleteButton {
   color: red
   
 }
+
+button.publishedButton {
+  color: green
+}
+
+button.draftButton {
+  color: purple
+}
+
+button.publicTrueButton {
+  color: orange
+}
+
+button.publicFalseButton {
+  color: pink
+}
