@@ -1,3 +1,5 @@
+Worked together with Martine Muller, so some code similarities might be possible.
+
 Remade the project from version one in React, I had some issues with the folders from the first one, so rather than creating as a new Branch, I remade it in a new repository.
 
 To run the project and the server, you must be in the reactportfolio folder, here you can run "npm run dev", and "npm run dev:server".
